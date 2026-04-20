@@ -412,7 +412,38 @@ html.pink-theme{
       <div class="err" id="familyCodeErr"></div>
       <button class="btn blue" onclick="joinFamily()">🔗 進入我的家庭</button>
     </div>
-    <div style="text-align:center;margin:16px 0;font-size:.9rem;font-weight:800;color:var(--sub);">── 或者 ──</div>
+    <!-- Quick help section -->
+  <div style="margin-bottom:14px;">
+    <button onclick="toggleQuickHelp()" style="width:100%;padding:13px;background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;font-family:Nunito,sans-serif;font-size:1rem;font-weight:900;color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+      <span>📖 如何使用？點這裡看說明</span>
+      <span id="helpArrow" style="font-size:.85rem;color:var(--sub);">▼</span>
+    </button>
+    <div id="quickHelp" style="display:none;background:var(--panel);border:1.5px solid var(--bd);border-top:none;border-radius:0 0 12px 12px;padding:14px;">
+      <div style="font-size:.95rem;font-weight:900;color:var(--text);margin-bottom:10px;">🏠 第一次使用流程：</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="background:var(--gold);color:#000;border-radius:50%;width:24px;height:24px;min-width:24px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;">1</div>
+          <div style="font-size:.9rem;font-weight:800;color:var(--text);">點「建立新家庭」，自己取一個代碼（例如：林家2024）</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="background:var(--gold);color:#000;border-radius:50%;width:24px;height:24px;min-width:24px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;">2</div>
+          <div style="font-size:.9rem;font-weight:800;color:var(--text);">建立管理員帳號（輸入名字和 PIN 碼）</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="background:var(--gold);color:#000;border-radius:50%;width:24px;height:24px;min-width:24px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;">3</div>
+          <div style="font-size:.9rem;font-weight:800;color:var(--text);">進入設定，新增孩子和家長帳號</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="background:var(--gold);color:#000;border-radius:50%;width:24px;height:24px;min-width:24px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;">4</div>
+          <div style="font-size:.9rem;font-weight:800;color:var(--text);">把這個網址和家庭代碼傳給所有家人</div>
+        </div>
+      </div>
+      <div style="font-size:.95rem;font-weight:900;color:var(--text);margin-bottom:8px;">👨‍👩‍👧 已有帳號的家人：</div>
+      <div style="font-size:.9rem;font-weight:800;color:var(--sub);line-height:1.6;">在上方「已有家庭帳號」輸入家庭代碼 → 進入 → 點自己的名字 → 輸入 PIN 碼</div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin:16px 0;font-size:.9rem;font-weight:800;color:var(--sub);">── 或者 ──</div>
     <div class="card">
       <h3>🆕 建立新家庭</h3>
       <p>第一次使用？設定你們家專屬代碼</p>
@@ -481,7 +512,6 @@ html.pink-theme{
     <div class="nb on" onclick="go('quest')"><span class="ni">⚔️</span><span class="nl">任務</span></div>
     <div class="nb" onclick="go('shop')"><span class="ni">🏪</span><span class="nl">商店<span class="nbdg" id="pendBadge" style="display:none"></span></span></div>
     <div class="nb" onclick="go('badge')"><span class="ni">🏅</span><span class="nl">徽章</span></div>
-    <div class="nb" onclick="go('calm')"><span class="ni">🧘</span><span class="nl">冷靜術</span></div>
     <div class="nb" onclick="go('help')"><span class="ni">📖</span><span class="nl">說明</span></div>
     <div class="nb" onclick="go('settings')"><span class="ni">⚙️</span><span class="nl">設定</span></div>
   </div>
@@ -1342,7 +1372,7 @@ function startApp(){
 
 function go(id){
   curPage=id;
-  document.querySelectorAll('.nb').forEach((b,i)=>b.classList.toggle('on',['quest','shop','badge','calm','help','settings'][i]===id));
+  document.querySelectorAll('.nb').forEach((b,i)=>b.classList.toggle('on',['quest','shop','badge','help','settings'][i]===id));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
   document.getElementById('pg-'+id).classList.add('on');
   if(id==='quest')renderQuest();
@@ -1977,6 +2007,15 @@ function logout(){
   // Clear bin ID so they need to re-enter sync code
   // Actually keep BIN_ID so they can still log back in
   showWho();
+}
+
+function toggleQuickHelp(){
+  const el = document.getElementById('quickHelp');
+  const arrow = document.getElementById('helpArrow');
+  if(!el) return;
+  const isOpen = el.style.display !== 'none';
+  el.style.display = isOpen ? 'none' : 'block';
+  if(arrow) arrow.textContent = isOpen ? '▼' : '▲';
 }
 
 function renderHelp(){
