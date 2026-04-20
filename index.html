@@ -512,7 +512,6 @@ html.pink-theme{
     <div class="nb on" onclick="go('quest')"><span class="ni">⚔️</span><span class="nl">任務</span></div>
     <div class="nb" onclick="go('shop')"><span class="ni">🏪</span><span class="nl">商店<span class="nbdg" id="pendBadge" style="display:none"></span></span></div>
     <div class="nb" onclick="go('badge')"><span class="ni">🏅</span><span class="nl">徽章</span></div>
-    <div class="nb" onclick="go('calm')"><span class="ni">🧘</span><span class="nl">冷靜術</span></div>
     <div class="nb" onclick="go('help')"><span class="ni">📖</span><span class="nl">說明</span></div>
     <div class="nb" onclick="go('settings')"><span class="ni">⚙️</span><span class="nl">設定</span></div>
   </div>
@@ -1373,7 +1372,7 @@ function startApp(){
 
 function go(id){
   curPage=id;
-  document.querySelectorAll('.nb').forEach((b,i)=>b.classList.toggle('on',['quest','shop','badge','calm','help','settings'][i]===id));
+  document.querySelectorAll('.nb').forEach((b,i)=>b.classList.toggle('on',['quest','shop','badge','help','settings'][i]===id));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
   document.getElementById('pg-'+id).classList.add('on');
   if(id==='quest')renderQuest();
