@@ -8,22 +8,43 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#f5f5f0;--panel:#ffffff;--p2:#f0f0ea;--bd:#ddddd5;
-  --gold:#e8a000;--gold2:#c98000;--green:#1a9a4a;--g2:#158040;
-  --red:#d63030;--blue:#1a7ab0;--purple:#6a3db0;--sub:#666660;
-  --text:#222220;--r:14px;
+  --bg:#f7f7f7;
+  --panel:#ffffff;
+  --p2:#eeeeee;
+  --bd:#cccccc;
+  --gold:#c07000;
+  --gold2:#a05800;
+  --green:#1a7a30;
+  --g2:#115520;
+  --red:#c02020;
+  --blue:#1a5aaa;
+  --purple:#5a20a0;
+  --sub:#555555;
+  --text:#111111;
+  --r:12px;
 }
-html{font-size:18px;}
+html{font-size:19px;}
 body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:80px;}
+html.mc-theme{
+  --bg:#f2f7ee;--panel:#ffffff;--p2:#e4f0d8;--bd:#99cc66;
+  --gold:#3a6600;--gold2:#2a4a00;--green:#1a6600;--g2:#114400;
+  --red:#cc1a1a;--blue:#1a5aaa;--purple:#5a20a0;--sub:#335522;
+  --text:#111a00;
+}
 html.mc-theme body{
   font-family:'Courier New',monospace;
-  background-image:linear-gradient(rgba(0,0,0,.04) 2px,transparent 2px),linear-gradient(90deg,rgba(0,0,0,.04) 2px,transparent 2px);
+  background-image:linear-gradient(rgba(0,0,0,.03) 2px,transparent 2px),linear-gradient(90deg,rgba(0,0,0,.03) 2px,transparent 2px);
   background-size:32px 32px;
 }
-html.mc-theme .card,.mc-theme .who-card,.mc-theme .qc,.mc-theme .boss-c,.mc-theme .sc,.mc-theme .modal{border-radius:2px!important;}
-html.mc-theme .btn{border-radius:2px!important;font-family:'Courier New',monospace!important;}
+html.mc-theme .card,html.mc-theme .who-card,html.mc-theme .qc,html.mc-theme .boss-c,html.mc-theme .sc,html.mc-theme .modal{border-radius:3px!important;}
+html.mc-theme .btn{border-radius:3px!important;font-family:'Courier New',monospace!important;}
+html.pink-theme{
+  --bg:#fdf4f9;--panel:#ffffff;--p2:#fce8f4;--bd:#e8a0cc;
+  --gold:#aa1166;--gold2:#880044;--green:#1a7a30;--g2:#115520;
+  --red:#cc1a1a;--blue:#8822bb;--purple:#aa00aa;--sub:#773355;
+  --text:#1a0011;
+}
 
-/* LOADING */
 #loading{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
 #loading .logo{font-size:4rem;}
 #loading .txt{font-size:1.1rem;font-weight:800;color:var(--gold);}
@@ -73,13 +94,13 @@ html.mc-theme .btn{border-radius:2px!important;font-family:'Courier New',monospa
 .pin-err{color:var(--red);font-size:.9rem;font-weight:800;min-height:1.2em;margin-bottom:10px;}
 
 /* NAV */
-#mainNav{position:sticky;top:0;z-index:100;background:#1e293b;border-bottom:1.5px solid rgba(255,255,255,.1);}
+#mainNav{position:sticky;top:0;z-index:100;background:#1a3300;border-bottom:2px solid rgba(0,0,0,.2);}
 .nav-row{display:flex;}
-.nb{flex:1;padding:12px 2px 10px;text-align:center;cursor:pointer;border-bottom:3px solid transparent;-webkit-tap-highlight-color:transparent;}
-.nb .ni{font-size:1.5rem;display:block;margin-bottom:2px;}
-.nb .nl{font-size:.75rem;font-weight:800;color:rgba(255,255,255,.6);}
-.nb.on{border-bottom-color:#60a5fa;}
-.nb.on .nl{color:#60a5fa;font-weight:900;}
+.nb{flex:1;padding:13px 2px 11px;text-align:center;cursor:pointer;border-bottom:3px solid transparent;-webkit-tap-highlight-color:transparent;}
+.nb .ni{font-size:1.6rem;display:block;margin-bottom:3px;}
+.nb .nl{font-size:.82rem;font-weight:800;color:#99cc66;}
+.nb.on{border-bottom-color:#88ff00;}
+.nb.on .nl{color:#88ff00;font-weight:900;}
 .nbdg{background:var(--red);color:#fff;border-radius:50%;width:17px;height:17px;font-size:.6rem;font-weight:900;display:inline-flex;align-items:center;justify-content:center;margin-left:3px;vertical-align:middle;}
 .page{display:none;}
 .page.on{display:block;}
@@ -677,28 +698,29 @@ window.onerror = function(msg, src, line) {
 const THEMES = {
   mc: {
     name:'⛏️ Minecraft',
-    bg:'#2d5a1b',panel:'#8b6914',p2:'#6b4f10',bd:'#3d2b0a',
-    gold:'#ffd700',gold2:'#c8a800',green:'#5aaa2a',g2:'#3d8c1a',
-    red:'#cc2200',blue:'#5599ff',purple:'#aa66ff',sub:'#c8a878',
-    text:'#fffde7',
-    accent:'#ffd700',accentBg:'rgba(255,215,0,.2)',
-    navBg:'#1a0e00',navText:'rgba(255,220,120,.7)',navActive:'#ffd700',
-    card_shadow:'0 4px 0 rgba(0,0,0,.4)',
+    bg:'#f2f7ee',panel:'#ffffff',p2:'#e4f0d8',bd:'#99cc66',
+    gold:'#3a6600',gold2:'#2a4a00',green:'#1a6600',g2:'#114400',
+    red:'#cc1a1a',blue:'#1a5aaa',purple:'#5a20a0',sub:'#335522',
+    text:'#111a00',
+    accent:'#3a6600',accentBg:'rgba(58,102,0,.1)',
+    navBg:'#1a3300',navText:'#ccff88',navActive:'#88ff00',
+    card_shadow:'0 2px 0 rgba(0,0,0,.1)',
     hero_emoji:'⛏️🪓💎🧱🐷🐺🍖🌲',
-    quest_colors:['#cc2200','#ffd700','#aa66ff','#5599ff','#5aaa2a'],
+    quest_colors:['#cc1a1a','#3a6600','#5a20a0','#1a5aaa','#1a6600'],
     pixelStyle:true,
   },
   pink: {
-    name:'🌸 夢幻魔法',
-    bg:'#1a0d1f',panel:'#251130',p2:'#2e1540',bd:'#4a2060',
-    gold:'#f472b6',gold2:'#ec4899',green:'#34d399',g2:'#10b981',
-    red:'#f87171',blue:'#c084fc',purple:'#a855f7',sub:'#a78bab',
-    text:'#fce7f3',
-    accent:'#f472b6',accentBg:'rgba(244,114,182,.15)',
-    navBg:'#0f0618',navText:'rgba(255,255,255,.6)',navActive:'#f9a8d4',
-    card_shadow:'0 2px 12px rgba(168,85,247,.2)',
+    name:'🌸 夢幻公主',
+    bg:'#fdf4f9',panel:'#ffffff',p2:'#fce8f4',bd:'#e8a0cc',
+    gold:'#aa1166',gold2:'#880044',green:'#1a7a30',g2:'#115520',
+    red:'#cc1a1a',blue:'#8822bb',purple:'#aa00aa',sub:'#773355',
+    text:'#1a0011',
+    accent:'#aa1166',accentBg:'rgba(170,17,102,.08)',
+    navBg:'#1a0011',navText:'#ffccee',navActive:'#ff66bb',
+    card_shadow:'0 2px 0 rgba(170,0,170,.1)',
     hero_emoji:'🌸🦄✨💖🎀🌈🍭🌺',
-    quest_colors:['#f472b6','#c084fc','#a855f7','#ec4899','#34d399'],
+    quest_colors:['#aa1166','#aa00aa','#8822bb','#cc1a1a','#1a7a30'],
+    pixelStyle:false,
   }
 };
 
