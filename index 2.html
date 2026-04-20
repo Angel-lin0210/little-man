@@ -482,6 +482,7 @@ html.pink-theme{
     <div class="nb" onclick="go('shop')"><span class="ni">🏪</span><span class="nl">商店<span class="nbdg" id="pendBadge" style="display:none"></span></span></div>
     <div class="nb" onclick="go('badge')"><span class="ni">🏅</span><span class="nl">徽章</span></div>
     <div class="nb" onclick="go('calm')"><span class="ni">🧘</span><span class="nl">冷靜術</span></div>
+    <div class="nb" onclick="go('help')"><span class="ni">📖</span><span class="nl">說明</span></div>
     <div class="nb" onclick="go('settings')"><span class="ni">⚙️</span><span class="nl">設定</span></div>
   </div>
 </div>
@@ -564,6 +565,162 @@ html.pink-theme{
   <div class="sh"><span class="si">💬</span><span class="st">勇者語言</span><div class="sl"></div></div>
   <div class="ph-box"><div class="ph-hd">說出來就得分！</div><div id="phraseList"></div></div>
   <div style="height:14px;"></div>
+</div>
+
+<!-- HELP -->
+<div class="page" id="pg-help">
+  <div class="shop-h" style="background:linear-gradient(160deg,var(--p2),var(--bg));">
+    <h1 style="color:var(--blue);">📖 使用說明</h1>
+    <p>快速了解如何使用勇者任務板</p>
+  </div>
+
+  <!-- 身份切換 -->
+  <div style="display:flex;gap:8px;padding:14px 14px 0;">
+    <button id="helpTabParent" onclick="showHelpTab('parent')" style="flex:1;padding:10px;border-radius:10px;border:2px solid var(--gold);background:rgba(240,160,0,.15);color:var(--gold);font-family:Nunito,sans-serif;font-weight:900;font-size:.95rem;cursor:pointer;">👑 家長版</button>
+    <button id="helpTabChild" onclick="showHelpTab('child')" style="flex:1;padding:10px;border-radius:10px;border:2px solid var(--bd);background:var(--p2);color:var(--sub);font-family:Nunito,sans-serif;font-weight:900;font-size:.95rem;cursor:pointer;">🧒 孩子版</button>
+  </div>
+
+  <!-- 家長版說明 -->
+  <div id="helpParent" style="padding:14px;">
+
+    <div class="sh"><span class="si">🏠</span><span class="st">第一次使用</span><div class="sl"></div></div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:flex-start;">
+        <div style="background:var(--gold);color:#000;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;flex-shrink:0;">1</div>
+        <div><div style="font-size:1rem;font-weight:900;color:var(--text);margin-bottom:3px;">打開 App</div><div style="font-size:.88rem;font-weight:700;color:var(--sub);">點「建立新家庭」，輸入你們家專屬代碼（例如：林家2024）</div></div>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:flex-start;">
+        <div style="background:var(--gold);color:#000;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;flex-shrink:0;">2</div>
+        <div><div style="font-size:1rem;font-weight:900;color:var(--text);margin-bottom:3px;">建立管理員帳號</div><div style="font-size:.88rem;font-weight:700;color:var(--sub);">輸入你的名字和 4 位數 PIN 碼</div></div>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:flex-start;">
+        <div style="background:var(--gold);color:#000;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;flex-shrink:0;">3</div>
+        <div><div style="font-size:1rem;font-weight:900;color:var(--text);margin-bottom:3px;">新增家人帳號</div><div style="font-size:.88rem;font-weight:700;color:var(--sub);">⚙️ 設定 → 新增孩子 / 新增家長，設定各自的 PIN 碼</div></div>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:flex-start;">
+        <div style="background:var(--gold);color:#000;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;flex-shrink:0;">4</div>
+        <div><div style="font-size:1rem;font-weight:900;color:var(--text);margin-bottom:3px;">把網址和代碼傳給家人</div><div style="font-size:.88rem;font-weight:700;color:var(--sub);">所有人用同一個網址，輸入家庭代碼就能登入</div></div>
+      </div>
+    </div>
+
+    <div class="sh"><span class="si">👥</span><span class="st">帳號類型</span><div class="sl"></div></div>
+    <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:14px;">
+      <div style="background:var(--panel);border:1.5px solid var(--gold);border-radius:12px;padding:13px 14px;display:flex;gap:10px;align-items:center;">
+        <span style="font-size:1.5rem;">👑</span>
+        <div><div style="font-size:.95rem;font-weight:900;color:var(--gold);">管理員</div><div style="font-size:.85rem;font-weight:700;color:var(--sub);">可看所有孩子、新增帳號、管理任務和商店</div></div>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--blue);border-radius:12px;padding:13px 14px;display:flex;gap:10px;align-items:center;">
+        <span style="font-size:1.5rem;">👨</span>
+        <div><div style="font-size:.95rem;font-weight:900;color:var(--blue);">家長</div><div style="font-size:.85rem;font-weight:700;color:var(--sub);">只看到被指派的孩子，可給分、審核兌換</div></div>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:13px 14px;display:flex;gap:10px;align-items:center;">
+        <span style="font-size:1.5rem;">🧒</span>
+        <div><div style="font-size:.95rem;font-weight:900;color:var(--text);">孩子</div><div style="font-size:.85rem;font-weight:700;color:var(--sub);">只能看自己的任務和商店，不能修改設定</div></div>
+      </div>
+    </div>
+
+    <div class="sh"><span class="si">📋</span><span class="st">每日給分流程</span><div class="sl"></div></div>
+    <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:14px;">
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:1.1rem;">1️⃣</span><span style="font-size:.95rem;font-weight:800;color:var(--text);">登入家長帳號</span></div>
+        <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:1.1rem;">2️⃣</span><span style="font-size:.95rem;font-weight:800;color:var(--text);">點任務卡片展開 → 選今天孩子的表現</span></div>
+        <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:1.1rem;">3️⃣</span><span style="font-size:.95rem;font-weight:800;color:var(--text);">點加分任務（孩子有做到就點亮）</span></div>
+        <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:1.1rem;">4️⃣</span><span style="font-size:.95rem;font-weight:800;color:var(--text);">為孩子選 BOSS 挑戰目標</span></div>
+        <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:1.1rem;">5️⃣</span><span style="font-size:.95rem;font-weight:800;color:var(--text);">頁面底部給家人評分</span></div>
+      </div>
+    </div>
+
+    <div class="sh"><span class="si">🏪</span><span class="st">商店管理</span><div class="sl"></div></div>
+    <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:14px;">
+      <div style="font-size:.95rem;font-weight:800;color:var(--text);margin-bottom:8px;">審核兌換申請：</div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:1.1rem;">🔴</span><span style="font-size:.9rem;font-weight:700;color:var(--sub);">商店圖示有紅點 → 有待審核申請</span></div>
+        <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:1.1rem;">✓</span><span style="font-size:.9rem;font-weight:700;color:var(--green);">批准 → 自動扣除點數，獎勵給出</span></div>
+        <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:1.1rem;">✕</span><span style="font-size:.9rem;font-weight:700;color:var(--red);">拒絕 → 點數退回，下次再申請</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 孩子版說明 -->
+  <div id="helpChild" style="padding:14px;display:none;">
+
+    <div class="sh"><span class="si">🎮</span><span class="st">如何開始？</span><div class="sl"></div></div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:flex-start;">
+        <div style="background:var(--purple);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;flex-shrink:0;">1</div>
+        <div><div style="font-size:1rem;font-weight:900;color:var(--text);margin-bottom:3px;">找到你的名字</div><div style="font-size:.88rem;font-weight:700;color:var(--sub);">點你的頭像，輸入 4 位數 PIN 碼</div></div>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:flex-start;">
+        <div style="background:var(--purple);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;flex-shrink:0;">2</div>
+        <div><div style="font-size:1rem;font-weight:900;color:var(--text);margin-bottom:3px;">選擇你的主題</div><div style="font-size:.88rem;font-weight:700;color:var(--sub);">⛏️ Minecraft 或 🌸 夢幻公主，可以隨時在設定改</div></div>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:flex-start;">
+        <div style="background:var(--purple);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;flex-shrink:0;">3</div>
+        <div><div style="font-size:1rem;font-weight:900;color:var(--text);margin-bottom:3px;">看今天的任務</div><div style="font-size:.88rem;font-weight:700;color:var(--sub);">家長會幫你打分，努力完成賺更多點數！</div></div>
+      </div>
+    </div>
+
+    <div class="sh"><span class="si">⭐</span><span class="st">怎麼賺點數？</span><div class="sl"></div></div>
+    <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:14px;">
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:.95rem;font-weight:800;color:var(--text);">✅ 完成核心任務</span>
+        <span style="font-size:.88rem;font-weight:900;color:var(--gold);">0 ~ 5 點</span>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--purple);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:.95rem;font-weight:800;color:var(--text);">👑 完成 BOSS 挑戰</span>
+        <span style="font-size:.88rem;font-weight:900;color:var(--gold);">+ 10 點</span>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:.95rem;font-weight:800;color:var(--text);">✨ 加分任務</span>
+        <span style="font-size:.88rem;font-weight:900;color:var(--gold);">+ 3 ~ 5 點</span>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:.95rem;font-weight:800;color:var(--text);">🧘 使用冷靜術</span>
+        <span style="font-size:.88rem;font-weight:900;color:var(--gold);">+ 5 點</span>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:.95rem;font-weight:800;color:var(--text);">💬 說出勇者語言</span>
+        <span style="font-size:.88rem;font-weight:900;color:var(--gold);">+ 3 點</span>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:.95rem;font-weight:800;color:var(--text);">🔥 3天連勝</span>
+        <span style="font-size:.88rem;font-weight:900;color:var(--gold);">+ 10 點</span>
+      </div>
+    </div>
+
+    <div class="sh"><span class="si">🏆</span><span class="st">升級系統</span><div class="sl"></div></div>
+    <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:14px;">
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:.95rem;font-weight:900;color:var(--text);">🌱 Lv1 新手</span>
+        <span style="font-size:.85rem;font-weight:800;color:var(--sub);">0 點開始</span>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:.95rem;font-weight:900;color:var(--text);">🗡️ Lv2 自律者</span>
+        <span style="font-size:.85rem;font-weight:800;color:var(--blue);">累積 50 點</span>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:.95rem;font-weight:900;color:var(--text);">⚔️ Lv3 控制高手</span>
+        <span style="font-size:.85rem;font-weight:800;color:var(--purple);">累積 120 點</span>
+      </div>
+      <div style="background:var(--panel);border:1.5px solid var(--gold);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;background:rgba(240,160,0,.08);">
+        <span style="font-size:.95rem;font-weight:900;color:var(--gold);">👑 Lv4 超級隊長</span>
+        <span style="font-size:.85rem;font-weight:800;color:var(--gold);">累積 200 點</span>
+      </div>
+    </div>
+
+    <div class="sh"><span class="si">🏪</span><span class="st">如何用點數換獎勵？</span><div class="sl"></div></div>
+    <div style="background:var(--panel);border:1.5px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:14px;">
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:1.1rem;">1️⃣</span><span style="font-size:.95rem;font-weight:800;color:var(--text);">點底部 🏪 商店</span></div>
+        <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:1.1rem;">2️⃣</span><span style="font-size:.95rem;font-weight:800;color:var(--text);">找到想要的獎勵，確認點數夠</span></div>
+        <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:1.1rem;">3️⃣</span><span style="font-size:.95rem;font-weight:800;color:var(--text);">點「申請！」送出申請</span></div>
+        <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:1.1rem;">4️⃣</span><span style="font-size:.95rem;font-weight:800;color:var(--text);">等家長批准就完成了！🎉</span></div>
+      </div>
+    </div>
+
+  </div>
+  <div style="height:20px;"></div>
 </div>
 
 <!-- SETTINGS -->
@@ -1185,7 +1342,7 @@ function startApp(){
 
 function go(id){
   curPage=id;
-  document.querySelectorAll('.nb').forEach((b,i)=>b.classList.toggle('on',['quest','shop','badge','calm','settings'][i]===id));
+  document.querySelectorAll('.nb').forEach((b,i)=>b.classList.toggle('on',['quest','shop','badge','calm','help','settings'][i]===id));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
   document.getElementById('pg-'+id).classList.add('on');
   if(id==='quest')renderQuest();
@@ -1193,6 +1350,7 @@ function go(id){
   else if(id==='badge')renderBadge();
   else if(id==='calm')renderCalm();
   else if(id==='settings')renderSettings();
+  else if(id==='help')renderHelp();
   updatePB();
 }
 
@@ -1819,6 +1977,27 @@ function logout(){
   // Clear bin ID so they need to re-enter sync code
   // Actually keep BIN_ID so they can still log back in
   showWho();
+}
+
+function renderHelp(){
+  // Nothing to render dynamically - static content
+}
+
+function showHelpTab(tab){
+  document.getElementById('helpParent').style.display = tab==='parent' ? 'block' : 'none';
+  document.getElementById('helpChild').style.display = tab==='child' ? 'block' : 'none';
+  const pb = document.getElementById('helpTabParent');
+  const cb = document.getElementById('helpTabChild');
+  if(pb){
+    pb.style.borderColor = tab==='parent' ? 'var(--gold)' : 'var(--bd)';
+    pb.style.background = tab==='parent' ? 'rgba(240,160,0,.15)' : 'var(--p2)';
+    pb.style.color = tab==='parent' ? 'var(--gold)' : 'var(--sub)';
+  }
+  if(cb){
+    cb.style.borderColor = tab==='child' ? 'var(--purple)' : 'var(--bd)';
+    cb.style.background = tab==='child' ? 'rgba(170,102,255,.15)' : 'var(--p2)';
+    cb.style.color = tab==='child' ? 'var(--purple)' : 'var(--sub)';
+  }
 }
 
 function show(id){
